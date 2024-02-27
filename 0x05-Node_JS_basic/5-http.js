@@ -45,7 +45,6 @@ const countStudents = (path) => new Promise((resolve, reject) => {
 });
 
 const app = http.createServer((req, res) => {
-
   if (req.url === '/') {
     const plainResponse = 'Hello Holberton School!';
 
