@@ -31,21 +31,22 @@ const countStudents = (path) => new Promise((resolve, reject) => {
         }
       });
 
-      let outputString = 'This is the list of our students\n';
       const totalStudents = lines.length;
-      outputString += `Number of students: ${totalStudents}\n`;
+      let outputString = `Number of students: ${totalStudents}\n`;
 
       let lastIndex = Object.keys(eachFields).length - 1;
       let currentIndex = 0;
 
       for (const key in eachFields) {
-        if (key) {
+        // if (key) {
+        //   outputString += `Number of students in ${key}: ${eachFields[key].length}. List: ${eachFields[key].join(', ')}`;
+        // }
+        if (currentIndex !== lastIndex) {
+          outputString += `Number of students in ${key}: ${eachFields[key].length}. List: ${eachFields[key].join(', ')}\n`;
+        } else {
           outputString += `Number of students in ${key}: ${eachFields[key].length}. List: ${eachFields[key].join(', ')}`;
         }
-        if (currentIndex !== lastIndex) {
-          outputString += '\n';
-        }
-        currentIndex++;
+        currentIndex += 1;
       }
       resolve(outputString);
     }
@@ -53,22 +54,18 @@ const countStudents = (path) => new Promise((resolve, reject) => {
 });
 
 const app = http.createServer((req, res) => {
+  res.writeHead(200, {
+    'Content-Type': 'text/plain',
+  });
   if (req.url === '/') {
     const plainResponse = 'Hello Holberton School!';
 
-    res.writeHead(200, {
-      'Content-Type': 'text/plain',
-      'Content-Length': plainResponse.length,
-    });
     res.end(plainResponse);
   }
 
   if (req.url === '/students') {
+    res.write('This is the list of our students');
     countStudents(process.argv[2].toString()).then((outputString) => {
-      res.writeHead(200, {
-        'Content-Type': 'text/plain',
-        'Content-Length': outputString.length,
-      });
       res.end(outputString);
     }).catch(() => {
       res.statusCode = 404;
