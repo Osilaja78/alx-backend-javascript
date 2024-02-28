@@ -1,11 +1,1 @@
-[core]
-	repositoryformatversion = 0
-	filemode = true
-	bare = false
-	logallrefupdates = true
-[remote "origin"]
-	url = https://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@github.com/Osilaja78/alx-backend-javascript.git
-	fetch = +refs/heads/*:refs/remotes/origin/*
-[branch "master"]
-	remote = origin
-	merge = refs/heads/master
+
