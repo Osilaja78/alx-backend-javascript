@@ -34,19 +34,18 @@ const countStudents = (path) => new Promise((resolve, reject) => {
       const totalStudents = lines.length;
       let outputString = `\nNumber of students: ${totalStudents}\n`;
 
-      let lastIndex = Object.keys(eachFields).length - 1;
+      const lastIndex = Object.keys(eachFields).length - 1;
       let currentIndex = 0;
 
       for (const key in eachFields) {
-        // if (key) {
-        //   outputString += `Number of students in ${key}: ${eachFields[key].length}. List: ${eachFields[key].join(', ')}`;
-        // }
-        if (currentIndex !== lastIndex) {
-          outputString += `Number of students in ${key}: ${eachFields[key].length}. List: ${eachFields[key].join(', ')}\n`;
-        } else {
-          outputString += `Number of students in ${key}: ${eachFields[key].length}. List: ${eachFields[key].join(', ')}`;
+        if (key) {
+          if (currentIndex !== lastIndex) {
+            outputString += `Number of students in ${key}: ${eachFields[key].length}. List: ${eachFields[key].join(', ')}\n`;
+          } else {
+            outputString += `Number of students in ${key}: ${eachFields[key].length}. List: ${eachFields[key].join(', ')}`;
+          }
+          currentIndex += 1;
         }
-        currentIndex += 1;
       }
       resolve(outputString);
     }
