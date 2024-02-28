@@ -32,7 +32,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
       });
 
       const totalStudents = lines.length;
-      let outputString = `Number of students: ${totalStudents}\n`;
+      let outputString = `\nNumber of students: ${totalStudents}\n`;
 
       let lastIndex = Object.keys(eachFields).length - 1;
       let currentIndex = 0;
