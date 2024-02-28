@@ -31,8 +31,9 @@ const countStudents = (path) => new Promise((resolve, reject) => {
         }
       });
 
+      let outputString = 'This is the list of our students\n';
       const totalStudents = lines.length;
-      let outputString = `Number of students: ${totalStudents}\n`;
+      outputString += `Number of students: ${totalStudents}\n`;
 
       for (const key in eachFields) {
         if (key) {
@@ -57,7 +58,10 @@ const app = http.createServer((req, res) => {
 
   if (req.url === '/students') {
     countStudents(process.argv[2].toString()).then((outputString) => {
-      // const outString = outputString.slice(0, -1);
+      res.writeHead(200, {
+        'Content-Type': 'text/plain',
+        'Content-Length': outputString.length,
+      });
       res.end(outputString);
     }).catch(() => {
       res.statusCode = 404;
