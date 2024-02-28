@@ -69,7 +69,7 @@ const app = http.createServer((req, res) => {
       res.end(outputString);
     }).catch(() => {
       res.statusCode = 404;
-      res.end('Cannot load the database');
+      res.end('\nCannot load the database');
     });
   }
 });
