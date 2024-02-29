@@ -14,11 +14,11 @@ describe('calculateNumber', () => {
       expect(calculateNumber('SUM', -2.0, -3.0), -5).to.equal(-5);
     });
 
-    it('test with a as a negative number', () => {
+    it('test with a as negative number', () => {
       expect(calculateNumber('SUM', -2.0, 3.0)).to.equal(1);
     });
 
-    it('test with b as a negative number', () => {
+    it('test with b as negative number', () => {
       expect(calculateNumber('SUM', 2.0, -3.0)).to.equal(-1);
     });
 
