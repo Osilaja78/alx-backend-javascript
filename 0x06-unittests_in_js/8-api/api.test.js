@@ -7,7 +7,7 @@ const { expect } = require('chai');
 
 describe('API integration test', () => {
   it('GET / returns correct response', (done) => {
-    request.get('http://localhost:7865', (res, body) => {
+    request.get('http://localhost:7865', (_, res, body) => {
       expect(res.statusCode).to.be.equal(200);
       expect(body).to.be.equal('Welcome to the payment system');
       done();
