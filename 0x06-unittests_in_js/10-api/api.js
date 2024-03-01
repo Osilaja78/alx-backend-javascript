@@ -1,8 +1,12 @@
 /* eslint-disable comma-dangle */
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = 7865;
+
+app.use(bodyParser.json());
+
 
 app.get('/', (_, res) => {
   res.send('Welcome to the payment system');
