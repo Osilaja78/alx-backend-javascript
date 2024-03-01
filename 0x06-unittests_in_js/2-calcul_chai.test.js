@@ -5,7 +5,7 @@ const { expect } = require('chai');
 const calculateNumber = require('./1-calcul');
 
 describe('calculateNumber', () => {
-  describe('test for SUM', () => {
+  describe('type == "SUM"', () => {
     it('test with two positive numbers', () => {
       expect(calculateNumber('SUM', 2.0, 3.0)).to.equal(5);
     });
@@ -35,7 +35,7 @@ describe('calculateNumber', () => {
     });
   });
 
-  describe('test for SUBTRACT', () => {
+  describe('type == "SUBTRACT"', () => {
     it('test with two positive numbers', () => {
       expect(calculateNumber('SUBTRACT', 5.0, 3.0)).to.equal(2);
     });
@@ -65,7 +65,7 @@ describe('calculateNumber', () => {
     });
   });
 
-  describe('test for DIVIDE', () => {
+  describe('type == "DIVIDE"', () => {
     it('test with b as zero', () => {
       expect(calculateNumber('DIVIDE', 2.0, 0.0)).to.equal('Error');
     });
