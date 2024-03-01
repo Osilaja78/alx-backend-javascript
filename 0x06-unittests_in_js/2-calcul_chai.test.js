@@ -1,6 +1,5 @@
 /* eslint-disable jest/valid-expect */
 /* eslint-disable jest/prefer-expect-assertions */
-/* eslint-disable jest/expect-expect */
 const { expect } = require('chai');
 const calculateNumber = require('./1-calcul');
 
@@ -11,7 +10,7 @@ describe('calculateNumber', () => {
     });
 
     it('test with two negative numbers', () => {
-      expect(calculateNumber('SUM', -2.0, -3.0), -5).to.equal(-5);
+      expect(calculateNumber('SUM', -2.0, -3.0)).to.equal(-5);
     });
 
     it('test with a as negative number', () => {
